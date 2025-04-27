@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Navbar';
-import { Container, Row, Col, Table, Button, Card, Form } from 'react-bootstrap';
+import { Container, Row, Col, Table, Button, Card, Form, OverlayTrigger, Tooltip, Badge } from 'react-bootstrap';
 import '../CSS/LectureList.css';
 
 const LectureList = () => {
+    const [capacityError, setCapacityError] = useState('');
     const [lectures, setLectures] = useState([]);
     const [classrooms, setClassrooms] = useState([]);
     const [instructors, setInstructors] = useState([]);
@@ -65,12 +66,50 @@ const LectureList = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    //const handleChange = (e) => {
+    //    setForm({ ...form, [e.target.name]: e.target.value });
+    //};
+
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+
+        // Öðrenci sayýsý veya derslik deðiþtiðinde kapasite kontrolü yap
+        if (name === 'studentNumber' || name === 'classroomId') {
+            const newForm = { ...form, [name]: value };
+
+            if (name === 'studentNumber' && !/^\d*$/.test(value)) {
+                // Sadece sayý giriþine izin ver
+                return;
+            }
+
+            setForm(newForm);
+
+            if (newForm.classroomId && newForm.studentNumber) {
+                const selectedClassroom = classrooms.find(c => c.id === parseInt(newForm.classroomId));
+                if (selectedClassroom && parseInt(newForm.studentNumber) > selectedClassroom.capacity) {
+                    setCapacityError(`Seçilen derslik kapasitesi (${selectedClassroom.capacity}) öðrenci sayýsýndan (${newForm.studentNumber}) küçük!`);
+                } else {
+                    setCapacityError('');
+                }
+            } else {
+                setCapacityError('');
+            }
+        } else {
+            setForm({ ...form, [name]: value });
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (form.classroomId && form.studentNumber) {
+            const selectedClassroom = classrooms.find(c => c.id === parseInt(form.classroomId));
+            if (selectedClassroom && parseInt(form.studentNumber) > selectedClassroom.capacity) {
+                setError(`Derslik kapasitesi yetersiz! Seçilen derslik: ${selectedClassroom.capacity}, Öðrenci sayýsý: ${form.studentNumber}`);
+                return;
+            }
+        }
+
         try {
             if (isEditing) {
                 await axios.put(`/api/lecture/${form.id}`, form);
@@ -112,6 +151,37 @@ const LectureList = () => {
 
     if (loading) return <div className="loading-spinner">Yükleniyor...</div>;
 
+    const getClassroomOptionStyle = (classroom) => {
+        if (!form.studentNumber) return {};
+
+        const studentNum = parseInt(form.studentNumber);
+        if (studentNum > classroom.capacity) {
+            return {
+                color: '#dc3545',
+                backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                fontWeight: '500'
+            };
+        } else if (studentNum === classroom.capacity) {
+            return {
+                color: '#ffc107',
+                backgroundColor: 'rgba(255, 193, 7, 0.1)',
+                fontWeight: '500'
+            };
+        } else {
+            return {
+                color: '#28a745',
+                fontWeight: '500'
+            };
+        }
+    };
+
+    const renderClassroomTooltip = (props, classroom) => (
+        <Tooltip id={`classroom-tooltip-${classroom.id}`} {...props}>
+            <strong>Kapasite:</strong> {classroom.capacity} öðrenci<br />
+            <strong>Düzen:</strong> {classroom.columns} sýra x {classroom.seatsPerColumn} sýra baþý<br />
+            <strong>Mevcut dersler:</strong> {classroom.lectureCount}
+        </Tooltip>
+    );
     return (
         <>
             <Navbar />
@@ -199,16 +269,52 @@ const LectureList = () => {
                                             required
                                         />
                                     </Form.Group>
+                                    {/*<Form.Group className="mb-3">*/}
+                                    {/*    <Form.Label>Student Number</Form.Label>*/}
+                                    {/*    <Form.Control*/}
+                                    {/*        type="text"*/}
+                                    {/*        name="studentNumber"*/}
+                                    {/*        value={form.studentNumber}*/}
+                                    {/*        onChange={handleChange}*/}
+                                    {/*        required*/}
+                                    {/*    />*/}
+                                    {/*</Form.Group>*/}
+                                    {/*<Form.Group className="mb-3">*/}
+                                    {/*    <Form.Label>Classroom</Form.Label>*/}
+                                    {/*    <Form.Select*/}
+                                    {/*        name="classroomId"*/}
+                                    {/*        value={form.classroomId}*/}
+                                    {/*        onChange={handleChange}*/}
+                                    {/*        required*/}
+                                    {/*    >*/}
+                                    {/*        <option value="">Select Classroom</option>*/}
+                                    {/*        {classrooms.map(classroom => (*/}
+                                    {/*            <option key={classroom.id} value={classroom.id}>*/}
+                                    {/*                {classroom.name}*/}
+                                    {/*            </option>*/}
+                                    {/*        ))}*/}
+                                    {/*    </Form.Select>*/}
+                                    {/*</Form.Group>*/}
+
                                     <Form.Group className="mb-3">
                                         <Form.Label>Student Number</Form.Label>
                                         <Form.Control
-                                            type="text"
+                                            type="number"
                                             name="studentNumber"
                                             value={form.studentNumber}
                                             onChange={handleChange}
                                             required
+                                            min="1"
                                         />
+                                        {form.studentNumber && (
+                                            <div className="mt-1">
+                                                <small className="text-muted">
+                                                    {form.studentNumber} öðrenci için uygun derslikler yeþil renkle gösterilir
+                                                </small>
+                                            </div>
+                                        )}
                                     </Form.Group>
+
                                     <Form.Group className="mb-3">
                                         <Form.Label>Classroom</Form.Label>
                                         <Form.Select
@@ -216,14 +322,43 @@ const LectureList = () => {
                                             value={form.classroomId}
                                             onChange={handleChange}
                                             required
+                                            isInvalid={!!capacityError}
                                         >
                                             <option value="">Select Classroom</option>
                                             {classrooms.map(classroom => (
-                                                <option key={classroom.id} value={classroom.id}>
-                                                    {classroom.name}
-                                                </option>
+                                                <OverlayTrigger
+                                                    key={classroom.id}
+                                                    placement="right"
+                                                    overlay={(props) => renderClassroomTooltip(props, classroom)}
+                                                    delay={{ show: 250, hide: 400 }}
+                                                >
+                                                    <option
+                                                        value={classroom.id}
+                                                        style={getClassroomOptionStyle(classroom)}
+                                                        disabled={form.studentNumber && parseInt(form.studentNumber) > classroom.capacity}
+                                                    >
+                                                        {classroom.name} (Kapasite: {classroom.capacity})
+                                                        {form.studentNumber && (
+                                                            <>
+                                                                {' '}
+                                                                {parseInt(form.studentNumber) > classroom.capacity ? (
+                                                                    <Badge bg="danger">Yetersiz</Badge>
+                                                                ) : parseInt(form.studentNumber) === classroom.capacity ? (
+                                                                    <Badge bg="warning">Tam Doluluk</Badge>
+                                                                ) : (
+                                                                    <Badge bg="success">Uygun</Badge>
+                                                                )}
+                                                            </>
+                                                        )}
+                                                    </option>
+                                                </OverlayTrigger>
                                             ))}
                                         </Form.Select>
+                                        {capacityError && (
+                                            <Form.Control.Feedback type="invalid">
+                                                {capacityError}
+                                            </Form.Control.Feedback>
+                                        )}
                                     </Form.Group>
                                     <Form.Group className="mb-3">
                                         <Form.Label>Instructor</Form.Label>

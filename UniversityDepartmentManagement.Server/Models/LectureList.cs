@@ -13,7 +13,8 @@ namespace UniversityDepartmentManagement.Server.Models
         public string? InstructorId { get; set; }
 
         public string? InstructorName { get; set; }
-        public UniversityUser User { get; set; }
+        public ClassroomModel Classroom { get; set; }
+        //public UniversityUser User { get; set; }
 
         //public List<ScheduleDto> Schedules { get; set; }
     }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityDepartmentManagement.Server.Data;
 
@@ -10,9 +11,11 @@ using UniversityDepartmentManagement.Server.Data;
 namespace UniversityDepartmentManagement.Server.Migrations
 {
     [DbContext(typeof(DataApplicationContext))]
-    partial class DataApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20250427114614_lectureScheduleSemesterMig")]
+    partial class lectureScheduleSemesterMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.4");
@@ -314,8 +317,9 @@ namespace UniversityDepartmentManagement.Server.Migrations
                     b.Property<int>("LectureId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Semester")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Semester")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("TEXT");

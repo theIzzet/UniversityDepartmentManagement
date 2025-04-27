@@ -35,7 +35,13 @@ namespace UniversityDepartmentManagement.Server.Controllers
                         StudentNumber = l.StudentNumber,
                         ClassroomId = l.ClassroomId,
                         InstructorId = l.InstructorId,
-                        InstructorName = l.User.Name + " " + l.User.SurName
+                        InstructorName = l.User.Name + " " + l.User.SurName,
+                         Classroom = new ClassroomModel
+                         {
+                             Id = l.Classroom.Id,
+                             Name = l.Classroom.Name,
+                             Capacity = l.Classroom.Capacity
+                         }
                     })
                     .ToListAsync();
 
@@ -91,14 +97,20 @@ namespace UniversityDepartmentManagement.Server.Controllers
             if (!classroomExists)
             {
                 return BadRequest("Classroom does not exist.");
+
+            }
+            var classroom = await _context.Classrooms.FindAsync(model.ClassroomId);
+            if (model.StudentNumber > classroom.Capacity)
+            {
+                return BadRequest($"Classroom capacity ({classroom.Capacity}) is less than student number ({model.StudentNumber})");
             }
 
-           
             var instructorExists = await _context.Users.AnyAsync(u => u.Id == model.InstructorId);
             if (!instructorExists)
             {
                 return BadRequest("Instructor does not exist.");
             }
+
 
             var lecture = new Lecture
             {
@@ -113,7 +125,32 @@ namespace UniversityDepartmentManagement.Server.Controllers
             _context.Lectures.Add(lecture);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetLecture), new { id = lecture.Id }, lecture);
+
+
+            var createdLecture = await _context.Lectures
+        .Include(l => l.Classroom)
+        .Include(l => l.User)
+        .FirstOrDefaultAsync(l => l.Id == lecture.Id);
+
+            var responseDto = new LectureList
+            {
+                Id = createdLecture.Id,
+                Name = createdLecture.Name,
+                LectureCode = createdLecture.LectureCode,
+                Language = createdLecture.Language,
+                StudentNumber = createdLecture.StudentNumber,
+                ClassroomId = createdLecture.ClassroomId,
+                InstructorId = createdLecture.InstructorId,
+                InstructorName = createdLecture.User.Name + " " + createdLecture.User.SurName,
+                Classroom = new ClassroomModel
+                {
+                    Id = createdLecture.Classroom.Id,
+                    Name = createdLecture.Classroom.Name,
+                    Capacity = createdLecture.Classroom.Capacity
+                }
+            };
+
+            return CreatedAtAction(nameof(GetLecture), new { id = lecture.Id }, responseDto);
         }
 
         
@@ -147,7 +184,13 @@ namespace UniversityDepartmentManagement.Server.Controllers
                 }
             }
 
-            
+
+            var classroom = await _context.Classrooms.FindAsync(model.ClassroomId);
+            if (model.StudentNumber > classroom.Capacity)
+            {
+                return BadRequest($"Classroom capacity ({classroom.Capacity}) is less than student number ({model.StudentNumber})");
+            }
+
             if (model.InstructorId != lecture.InstructorId)
             {
                 var instructorExists = await _context.Users.AnyAsync(u => u.Id == model.InstructorId);

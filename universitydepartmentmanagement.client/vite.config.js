@@ -46,6 +46,7 @@ export default defineConfig({
         }
     },
     server: {
+
         proxy: {
             //'^/weatherforecast': {
             //    target,

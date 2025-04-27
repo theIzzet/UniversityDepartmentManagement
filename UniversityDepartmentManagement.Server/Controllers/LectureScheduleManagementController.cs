@@ -17,6 +17,163 @@ namespace UniversityDepartmentManagement.Server.Controllers
         }
 
 
+        //[HttpGet("all-lecture-schedules")]
+        //public async Task<IActionResult> GetAllLectureSchedules()
+        //{
+        //    var schedules = await _context.LectureSchedules
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.Classroom)
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.User)
+        //        .Select(ls => new
+        //        {
+        //            Id = ls.Id,
+        //            Day = ls.Day,
+        //            StartTime = ls.StartTime,
+        //            EndTime = ls.EndTime,
+        //            Grade = ls.Grade,
+        //            Semester= ls.Semester,
+        //            Lecture = new
+        //            {
+        //                Id = ls.Lecture.Id,
+        //                Name = ls.Lecture.Name,
+        //                LectureCode = ls.Lecture.LectureCode,
+        //                Classroom = new
+        //                {
+        //                    Id = ls.Lecture.Classroom.Id,
+        //                    Name = ls.Lecture.Classroom.Name
+        //                },
+        //                User = new
+        //                {
+        //                    Id = ls.Lecture.User.Id,
+        //                    FullName = ls.Lecture.User.Name + " " + ls.Lecture.User.SurName
+        //                }
+        //            }
+        //        })
+        //        .ToListAsync();
+
+        //    return Ok(schedules);
+        //}
+
+
+        //[HttpGet("filtered-lecture-schedules")]
+        //public async Task<IActionResult> GetFilteredLectureSchedules(int grade, string semester)
+        //{
+        //    var schedules = await _context.LectureSchedules
+        //        .Where(ls => ls.Grade == grade && ls.Semester == semester)
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.Classroom)
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.User)
+        //        .Select(ls => new
+        //        {
+        //            Id = ls.Id,
+        //            Day = ls.Day,
+        //            StartTime = ls.StartTime,
+        //            EndTime = ls.EndTime,
+        //            Grade = ls.Grade,
+        //            Semester = ls.Semester,
+        //            Lecture = new
+        //            {
+        //                Id = ls.Lecture.Id,
+        //                Name = ls.Lecture.Name,
+        //                LectureCode = ls.Lecture.LectureCode,
+        //                Classroom = new
+        //                {
+        //                    Id = ls.Lecture.Classroom.Id,
+        //                    Name = ls.Lecture.Classroom.Name
+        //                },
+        //                User = new
+        //                {
+        //                    Id = ls.Lecture.User.Id,
+        //                    FullName = ls.Lecture.User.Name + " " + ls.Lecture.User.SurName
+        //                }
+        //            }
+        //        })
+        //        .ToListAsync();
+
+        //    return Ok(schedules);
+        //}
+
+
+        //[HttpGet("filtered-lecture-schedules")]
+        //public async Task<IActionResult> GetFilteredLectureSchedules([FromQuery] int grade, [FromQuery] string semester)
+        //{
+        //    var schedules = await _context.LectureSchedules
+        //        .Where(ls => ls.Grade == grade && ls.Semester == semester)
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.Classroom)
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.User)
+        //        .Select(ls => new
+        //        {
+        //            Id = ls.Id,
+        //            Day = ls.Day,
+        //            StartTime = ls.StartTime,
+        //            EndTime = ls.EndTime,
+        //            Grade = ls.Grade,
+        //            Semester = ls.Semester,
+        //            Lecture = new
+        //            {
+        //                Id = ls.Lecture.Id,
+        //                Name = ls.Lecture.Name,
+        //                LectureCode = ls.Lecture.LectureCode,
+        //                Classroom = new
+        //                {
+        //                    Id = ls.Lecture.Classroom.Id,
+        //                    Name = ls.Lecture.Classroom.Name
+        //                },
+        //                User = new
+        //                {
+        //                    Id = ls.Lecture.User.Id,
+        //                    FullName = ls.Lecture.User.Name + " " + ls.Lecture.User.SurName
+        //                }
+        //            }
+        //        })
+        //        .ToListAsync();
+
+        //    return Ok(schedules);
+        //}
+
+        //[HttpGet("filtered-lecture-schedules")]
+        //public async Task<IActionResult> GetFilteredLectureSchedules(int grade, string semester)
+        //{
+        //    var schedules = await _context.LectureSchedules
+        //        .Where(ls => ls.Grade == grade && ls.Semester == semester)
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.Classroom)
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.User)
+        //        .Select(ls => new
+        //        {
+        //            Id = ls.Id,
+        //            Day = ls.Day,
+        //            StartTime = ls.StartTime,
+        //            EndTime = ls.EndTime,
+        //            Grade = ls.Grade,
+        //            Semester = ls.Semester,
+        //            Lecture = new
+        //            {
+        //                Id = ls.Lecture.Id,
+        //                Name = ls.Lecture.Name,
+        //                LectureCode = ls.Lecture.LectureCode,
+        //                Classroom = new
+        //                {
+        //                    Id = ls.Lecture.Classroom.Id,
+        //                    Name = ls.Lecture.Classroom.Name
+        //                },
+        //                User = new
+        //                {
+        //                    Id = ls.Lecture.User.Id,
+        //                    FullName = ls.Lecture.User.Name + " " + ls.Lecture.User.SurName
+        //                }
+        //            }
+        //        })
+        //        .ToListAsync();
+
+        //    return Ok(schedules);
+        //}
+
         [HttpGet("all-lecture-schedules")]
         public async Task<IActionResult> GetAllLectureSchedules()
         {
@@ -31,6 +188,8 @@ namespace UniversityDepartmentManagement.Server.Controllers
                     Day = ls.Day,
                     StartTime = ls.StartTime,
                     EndTime = ls.EndTime,
+                    Grade = ls.Grade,
+                    Semester = ls.Semester,
                     Lecture = new
                     {
                         Id = ls.Lecture.Id,
@@ -54,6 +213,98 @@ namespace UniversityDepartmentManagement.Server.Controllers
         }
 
 
+
+        [HttpGet("filtered-lecture-schedules")]
+        public async Task<IActionResult> GetFilteredLectureSchedules(int grade, string semester)
+        {
+            var schedules = await _context.LectureSchedules
+                .Include(ls => ls.Lecture)
+                    .ThenInclude(l => l.Classroom)
+                .Include(ls => ls.Lecture)
+                    .ThenInclude(l => l.User)
+                .Where(ls => ls.Grade == grade && ls.Semester == semester)
+                .Select(ls => new
+                {
+                    Id = ls.Id,
+                    Day = ls.Day,
+                    StartTime = ls.StartTime,
+                    EndTime = ls.EndTime,
+                    Grade = ls.Grade,
+                    Semester = ls.Semester,
+                    Lecture = new
+                    {
+                        Id = ls.Lecture.Id,
+                        Name = ls.Lecture.Name,
+                        LectureCode = ls.Lecture.LectureCode,
+                        Classroom = new
+                        {
+                            Id = ls.Lecture.Classroom.Id,
+                            Name = ls.Lecture.Classroom.Name
+                        },
+                        User = new
+                        {
+                            Id = ls.Lecture.User.Id,
+                            FullName = ls.Lecture.User.Name + " " + ls.Lecture.User.SurName
+                        }
+                    }
+                })
+                .ToListAsync();
+
+            return Ok(schedules);
+        }
+
+
+        //[HttpGet("all-lecture-schedules")]
+        //public async Task<IActionResult> GetAllLectureSchedules([FromQuery] int? grade, [FromQuery] Semester? semester)
+        //{
+        //    var query = _context.LectureSchedules
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.Classroom)
+        //        .Include(ls => ls.Lecture)
+        //            .ThenInclude(l => l.User)
+        //        .AsQueryable();
+
+        //    if (grade.HasValue)
+        //    {
+        //        query = query.Where(ls => ls.Grade == grade.Value);
+        //    }
+
+        //    if (semester.HasValue)
+        //    {
+        //        query = query.Where(ls => ls.Semester == semester.Value);
+        //    }
+
+        //    var schedules = await query
+        //        .Select(ls => new
+        //        {
+        //            Id = ls.Id,
+        //            Day = ls.Day,
+        //            StartTime = ls.StartTime,
+        //            EndTime = ls.EndTime,
+        //            Grade = ls.Grade,
+        //            Semester = ls.Semester,
+        //            Lecture = new
+        //            {
+        //                Id = ls.Lecture.Id,
+        //                Name = ls.Lecture.Name,
+        //                LectureCode = ls.Lecture.LectureCode,
+        //                Classroom = new
+        //                {
+        //                    Id = ls.Lecture.Classroom.Id,
+        //                    Name = ls.Lecture.Classroom.Name
+        //                },
+        //                User = new
+        //                {
+        //                    Id = ls.Lecture.User.Id,
+        //                    FullName = ls.Lecture.User.Name + " " + ls.Lecture.User.SurName
+        //                }
+        //            }
+        //        })
+        //        .ToListAsync();
+
+        //    return Ok(schedules);
+        //}
+
         [HttpPost("add-lecture-schedule")]
         public async Task<IActionResult> AddLectureSchedule([FromBody] LectureScheduleModel model)
         {
@@ -67,7 +318,8 @@ namespace UniversityDepartmentManagement.Server.Controllers
             // Çakışma kontrolü - daha basit ve çevrilebilir bir formatta
             var conflictingSchedules = await _context.LectureSchedules
                 .Include(ls => ls.Lecture)
-                .Where(ls => ls.Day == model.Day)
+                .Where(ls => ls.Day == model.Day && ls.Grade == model.Grade &&
+                    ls.Semester == model.Semester)
                 .ToListAsync();
 
             bool hasConflict = conflictingSchedules.Any(ls =>
@@ -84,7 +336,9 @@ namespace UniversityDepartmentManagement.Server.Controllers
                 LectureId = model.LectureId,
                 Day = model.Day,
                 StartTime = model.StartTime,
-                EndTime = model.EndTime
+                EndTime = model.EndTime,
+                Semester = model.Semester,
+                Grade = model.Grade,
             };
 
             _context.LectureSchedules.Add(newSchedule);
@@ -98,9 +352,13 @@ namespace UniversityDepartmentManagement.Server.Controllers
                 Day = newSchedule.Day,
                 StartTime = newSchedule.StartTime,
                 EndTime = newSchedule.EndTime,
-                LectureId = newSchedule.LectureId
+                LectureId = newSchedule.LectureId,
+                Grade = newSchedule.Grade,
+                Semester = newSchedule.Semester,
+
             });
         }
+
 
         [HttpPut("update-lecture-schedule/{id}")]
         public async Task<IActionResult> UpdateLectureSchedule(int id, [FromBody] LectureScheduleModel model)
@@ -117,8 +375,9 @@ namespace UniversityDepartmentManagement.Server.Controllers
             bool conflict = await _context.LectureSchedules
                 .Include(ls => ls.Lecture)
                 .Where(ls => ls.Id != id &&
-                            ls.Day == model.Day &&
-                            ((model.StartTime < ls.EndTime && model.EndTime > ls.StartTime)) &&
+                            ls.Day == model.Day 
+                            && ls.Grade == model.Grade &&
+                    ls.Semester == model.Semester && ((model.StartTime < ls.EndTime && model.EndTime > ls.StartTime)) &&
                             (ls.Lecture.ClassroomId == lecture.ClassroomId || ls.Lecture.InstructorId == lecture.InstructorId))
                 .AnyAsync();
 
@@ -129,6 +388,8 @@ namespace UniversityDepartmentManagement.Server.Controllers
             existingSchedule.StartTime = model.StartTime;
             existingSchedule.EndTime = model.EndTime;
             existingSchedule.LectureId = model.LectureId;
+            existingSchedule.Semester=model.Semester;
+            existingSchedule.Grade= model.Grade;
 
             await _context.SaveChangesAsync();
             return Ok(existingSchedule);

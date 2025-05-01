@@ -24,14 +24,6 @@ function App() {
     return (
         <AuthProvider>
             <Router>
-                {/*<Routes>*/}
-                {/*    <Route path="/" element={<Login />} />*/}
-                {/*    <Route path="/main" element={<MainPage />} />*/}
-                {/*    <Route path="/lecture-list" element={<LectureList />} />*/}
-                {/*    <Route path="/add-lecture" element={<AddLecture />} />*/}
-                {/*    <Route path="/edit-lecture/:id" element={<EditLecture />} />*/}
-                {/*    <Route path="/management-schedule" element={<ManagementSchedule />} />*/}
-                {/*</Routes>*/}
 
                 <Routes>
                     <Route path="/" element={<Login />} />
@@ -45,16 +37,7 @@ function App() {
                             <LectureList />
                         </ProtectedRoute>
                     } />
-                    {/*<Route path="/add-lecture" element={*/}
-                    {/*    <ProtectedRoute>*/}
-                    {/*        <AddLecture />*/}
-                    {/*    </ProtectedRoute>*/}
-                    {/*} />*/}
-                    {/*<Route path="/edit-lecture/:id" element={*/}
-                    {/*    <ProtectedRoute>*/}
-                    {/*        <EditLecture />*/}
-                    {/*    </ProtectedRoute>*/}
-                    {/*} />*/}
+                  
                     <Route path="/management-schedule" element={
                         <ProtectedRoute>
                             <ManagementSchedule />
@@ -67,31 +50,14 @@ function App() {
                     } />
                     
 
-                    {/*<Route path="/classroom-list" element={*/}
-                    {/*    <ProtectedRoute>*/}
-                    {/*        <ClassroomList />*/}
-                    {/*    </ProtectedRoute>*/}
-                    {/*} />*/}
-
-                    {/*<Route path="/classroom-view/:id" element={*/}
-                    {/*    <ProtectedRoute>*/}
-                    {/*        <ClassroomView />*/}
-                    {/*    </ProtectedRoute>*/}
-                    {/*} />*/}
+                  
                     <Route path="/classroom-management" element={
                         <ProtectedRoute>
                             <ClassroomManagement />
                         </ProtectedRoute>
                     } />
 
-                    {/*<Route path="/classroom-details/:id" element={*/}
-                    {/*    <ProtectedRoute>*/}
-                    {/*        <ClassroomDetails />*/}
-                    {/*    </ProtectedRoute>*/}
-                    {/*} />*/}
-
-                    {/*<Route path="/classroom-list" element={<ClassroomList />} />*/}
-                    {/*<Route path="/classroom-view/:id" element={<ClassroomView />} />*/}
+                 
                 </Routes>
             </Router>
         </AuthProvider>

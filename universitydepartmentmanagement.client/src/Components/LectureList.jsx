@@ -269,32 +269,7 @@ const LectureList = () => {
                                             required
                                         />
                                     </Form.Group>
-                                    {/*<Form.Group className="mb-3">*/}
-                                    {/*    <Form.Label>Student Number</Form.Label>*/}
-                                    {/*    <Form.Control*/}
-                                    {/*        type="text"*/}
-                                    {/*        name="studentNumber"*/}
-                                    {/*        value={form.studentNumber}*/}
-                                    {/*        onChange={handleChange}*/}
-                                    {/*        required*/}
-                                    {/*    />*/}
-                                    {/*</Form.Group>*/}
-                                    {/*<Form.Group className="mb-3">*/}
-                                    {/*    <Form.Label>Classroom</Form.Label>*/}
-                                    {/*    <Form.Select*/}
-                                    {/*        name="classroomId"*/}
-                                    {/*        value={form.classroomId}*/}
-                                    {/*        onChange={handleChange}*/}
-                                    {/*        required*/}
-                                    {/*    >*/}
-                                    {/*        <option value="">Select Classroom</option>*/}
-                                    {/*        {classrooms.map(classroom => (*/}
-                                    {/*            <option key={classroom.id} value={classroom.id}>*/}
-                                    {/*                {classroom.name}*/}
-                                    {/*            </option>*/}
-                                    {/*        ))}*/}
-                                    {/*    </Form.Select>*/}
-                                    {/*</Form.Group>*/}
+                                   
 
                                     <Form.Group className="mb-3">
                                         <Form.Label>Student Number</Form.Label>

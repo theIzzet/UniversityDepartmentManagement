@@ -1,512 +1,46 @@
 
-
-/* Ana Konteyner */
-/*.schedule-page-container {
-    padding: 20px;
-    margin-top: 80px;
-    max-width: 100%;
-    background-color: #f8f9fa;
-    min-height: calc(100vh - 80px);
-}
-
-.schedule-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.mode-switch {
-    border-radius: 20px;
-    overflow: hidden;
-}*/
-
-/* Ýçerik Düzeni */
-/*.schedule-content {
-    display: flex;
-    gap: 20px;
-}
-
-.schedule-container {
-    flex: 3;
-    overflow-x: auto;
-    height: calc(100vh - 200px);
-    background-color: white;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.schedule-form {
-    flex: 1;
-    min-width: 350px;
-}*/
-
-/* Tablo Stilleri */
-/*.schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    table-layout: fixed;
-}
-
-    .schedule-table th {
-        position: sticky;
-        top: 0;
-        background-color: #2c3e50;
-        color: white;
-        padding: 12px;
-        z-index: 10;
-    }
-
-    .schedule-table td {
-        border: 1px solid #e0e0e0;
-        padding: 8px;
-        vertical-align: top;
-        height: 80px;
-        min-width: 120px;
-        transition: all 0.3s ease;
-    }
-
-        .schedule-table td:hover {
-            background-color: rgba(44, 62, 80, 0.05);
-        }*/
-
-/* Ders Kutularý */
-/*.lecture-box {
-    background-color: #e7f1ff;
-    border-left: 4px solid #007bff;
-    padding: 8px;
-    margin: 2px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-    .lecture-box strong {
-        color: #2c3e50;
-        display: block;
-        margin-bottom: 3px;
-    }
-
-.remove-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(220, 53, 69, 0.8);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-}
-
-.schedule-table td:hover .remove-overlay {
-    opacity: 1;
-}
-
-.remove-overlay i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}*/
-
-/* Form Kartý */
-/*.form-card {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-    .form-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-.form-card-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 15px;
-}
-
-    .form-card-header h3 {
-        margin: 0;
-        font-size: 1.25rem;
-    }
-
-.form-card-body {
-    padding: 20px;
-    background-color: white;
-}*/
-
-/* Form Elemanlarý */
-/*.form-group {
-    margin-bottom: 20px;
-}
-
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 500;
-        color: #495057;
-    }
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-}
-
-    .form-control:focus {
-        border-color: #2c3e50;
-        box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
-    }
-
-.btn-primary {
-    background-color: #2c3e50;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    width: 100%;
-    transition: all 0.3s ease;
-}
-
-    .btn-primary:hover {
-        background-color: #1a252f;
-        transform: translateY(-2px);
-    }*/
-
-/* Responsive Tasarým */
-/*@media (max-width: 992px) {
-    .schedule-content {
-        flex-direction: column;
-    }
-
-    .schedule-container {
-        height: auto;
-        max-height: 500px;
-    }
-
-    .schedule-form {
-        min-width: 100%;
-    }
-}*/
-
-
-
-
-
-
-
-
-/* Enhanced CSS with new elements */
-/*.schedule-page-container {
-    padding: 20px;
-    margin-top: 80px;
-    max-width: 100%;
-    background-color: #f8f9fa;
-    min-height: calc(100vh - 80px);
-}
-
-.schedule-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.header-left {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.filter-controls {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.filter-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-    .filter-group label {
-        font-weight: 500;
-        color: #495057;
-    }
-
-.semester-indicator {
-    padding: 10px 15px;
-    color: white;
-    font-weight: bold;
-    border-radius: 8px 8px 0 0;
-    margin-bottom: -1px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.mode-switch {
-    border-radius: 20px;
-    overflow: hidden;
-}*/
-
-/* Schedule content */
-/*.schedule-content {
-    display: flex;
-    gap: 20px;
-}
-
-.schedule-container {
-    flex: 3;
-    overflow-x: auto;
-    height: calc(100vh - 200px);
-    background-color: white;
-    border-radius: 0 0 8px 8px;
-    padding: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.schedule-form {
-    flex: 1;
-    min-width: 350px;
-}*/
-
-/* Table styles */
-/*.schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    table-layout: fixed;
-}
-
-    .schedule-table th {
-        position: sticky;
-        top: 0;
-        background-color: #2c3e50;
-        color: white;
-        padding: 12px;
-        z-index: 10;
-    }
-
-    .schedule-table td {
-        border: 1px solid #e0e0e0;
-        padding: 8px;
-        vertical-align: top;
-        height: 80px;
-        min-width: 120px;
-        transition: all 0.3s ease;
-    }
-
-        .schedule-table td:hover {
-            background-color: rgba(44, 62, 80, 0.05);
-        }*/
-
-/* Lecture boxes with gradient */
-/*.lecture-box {
-    border-left: 4px solid;
-    padding: 8px;
-    margin: 2px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-    .lecture-box strong {
-        color: #2c3e50;
-        display: block;
-        margin-bottom: 3px;
-    }
-
-.remove-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(220, 53, 69, 0.8);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-}
-
-.schedule-table td:hover .remove-overlay {
-    opacity: 1;
-}
-
-.remove-overlay i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}*/
-
-/* Form card */
-/*.form-card {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-    .form-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-.form-card-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 15px;
-}
-
-    .form-card-header h3 {
-        margin: 0;
-        font-size: 1.25rem;
-    }
-
-.form-card-body {
-    padding: 20px;
-    background-color: white;
-}*/
-
-/* Form elements */
-/*.form-group {
-    margin-bottom: 20px;
-}
-
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 500;
-        color: #495057;
-    }
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-}
-
-    .form-control:focus {
-        border-color: #2c3e50;
-        box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
-    }
-
-.btn-primary {
-    background-color: #2c3e50;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    width: 100%;
-    transition: all 0.3s ease;
-}
-
-    .btn-primary:hover {
-        background-color: #1a252f;
-        transform: translateY(-2px);
-    }*/
-
-/* PrimeReact dropdown styles */
-/*.p-dropdown {
-    width: 100%;
-}
-
-.p-selectbutton .p-button {
-    padding: 0.5rem 1rem;
-}*/
-
-/* Responsive design */
-/*@media (max-width: 992px) {
-    .schedule-content {
-        flex-direction: column;
-    }
-
-    .schedule-container {
-        height: auto;
-        max-height: 500px;
-    }
-
-    .schedule-form {
-        min-width: 100%;
-    }
-
-    .filter-controls {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Main Container */
 .schedule-page-container {
     padding: 20px;
     margin-top: 80px;
     max-width: 100%;
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
     min-height: calc(100vh - 80px);
 }
+
+/* Glass Card Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+}
+
+    .glass-card:hover {
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    }
 
 .schedule-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    padding: 15px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.page-title {
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.8rem;
+    background: linear-gradient(90deg, #3498db, #2c3e50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .header-left {
@@ -530,12 +64,85 @@
     .filter-item label {
         font-weight: 500;
         color: #495057;
+        min-width: 70px;
     }
 
-.mode-switch {
-    border-radius: 20px;
-    overflow: hidden;
+/* Dropdown Styles */
+.lecture-dropdown, .day-dropdown, .time-dropdown, .grade-dropdown {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease;
 }
+
+    .lecture-dropdown:hover, .day-dropdown:hover, .time-dropdown:hover, .grade-dropdown:hover {
+        border-color: #3498db;
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
+
+.lecture-dropdown-panel {
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.lecture-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+}
+
+.lecture-name {
+    font-weight: 500;
+    flex: 2;
+}
+
+.lecture-code {
+    color: #3498db;
+    font-weight: 600;
+    margin: 0 10px;
+    flex: 1;
+}
+
+.lecture-classroom {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    flex: 1.5;
+    text-align: right;
+}
+
+/* Mode Switch */
+.mode-switch {
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+    .mode-switch .btn {
+        padding: 8px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .mode-switch .btn-primary {
+        background-color: #3498db;
+        border-color: #3498db;
+    }
+
+    .mode-switch .btn-outline-primary {
+        color: #3498db;
+        border-color: #3498db;
+    }
+
+    .mode-switch .btn-danger {
+        background-color: #e74c3c;
+        border-color: #e74c3c;
+    }
+
+    .mode-switch .btn-outline-danger {
+        color: #e74c3c;
+        border-color: #e74c3c;
+    }
 
 /* Content Layout */
 .schedule-content {
@@ -547,10 +154,7 @@
     flex: 3;
     overflow-x: auto;
     height: calc(100vh - 200px);
-    background-color: white;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     position: relative;
 }
 
@@ -569,7 +173,8 @@
 /* Table Styles */
 .schedule-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     text-align: center;
     table-layout: fixed;
 }
@@ -577,43 +182,99 @@
     .schedule-table th {
         position: sticky;
         top: 0;
-        background-color: #2c3e50;
+        background: linear-gradient(135deg, #2980b9, #2980b9);
         color: white;
-        padding: 12px;
+        padding: 15px;
+        font-weight: 500;
         z-index: 10;
     }
 
     .schedule-table td {
-        border: 1px solid #e0e0e0;
+        border: 1px solid rgba(0, 0, 0, 0.05);
         padding: 8px;
         vertical-align: top;
-        height: 80px;
-        min-width: 120px;
+        height: 90px;
+        min-width: 150px;
         transition: all 0.3s ease;
+        position: relative;
     }
 
-        .schedule-table td:hover {
-            background-color: rgba(44, 62, 80, 0.05);
-        }
+.time-cell {
+    font-weight: 500;
+    color: #2c3e50;
+    background-color: rgba(236, 240, 241, 0.7);
+    position: sticky;
+    left: 0;
+    z-index: 5;
+}
+
+.schedule-table td:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
 
 /* Lecture Boxes */
 .lecture-box {
-    background-color: #e7f1ff;
-    border-left: 4px solid #007bff;
-    padding: 8px;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+    border-left: 4px solid #2980b9;
+    padding: 10px;
     margin: 2px;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 0.85em;
     height: 100%;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-    .lecture-box strong {
+    .lecture-box:hover {
+        transform: translateY(-2px);
+        /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+        border-left-color: #2472a4; 
+        box-shadow: 0 4px 12px rgba(41, 128, 185, 0.2);
+    }
+
+.lecture-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+    .lecture-header strong {
         color: #2c3e50;
         display: block;
         margin-bottom: 3px;
+        font-weight: 600;
+    }
+
+.lecture-badge {
+    font-size: 0.7em;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.lecture-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 0.8em;
+}
+
+    .lecture-details div {
+        display: flex;
+        align-items: center;
+        margin: 3px 0;
+        color: #34495e;
+    }
+
+    .lecture-details i {
+        margin-right: 6px;
+        font-size: 0.9em;
+        color: #7f8c8d;
     }
 
 .remove-overlay {
@@ -622,7 +283,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(220, 53, 69, 0.8);
+    background-color: rgba(231, 76, 60, 0.9);
     color: white;
     display: flex;
     flex-direction: column;
@@ -630,23 +291,23 @@
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    cursor: pointer;
+    border-radius: 4px;
 }
+
+    .remove-overlay i {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
 
 .schedule-table td:hover .remove-overlay {
     opacity: 1;
 }
 
-.remove-overlay i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
 /* Form Card */
 .form-card {
     border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
     height: 100%;
@@ -654,23 +315,19 @@
 
     .form-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
     }
 
-.form-card-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 15px;
+.form-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
 }
 
-    .form-card-header h3 {
-        margin: 0;
-        font-size: 1.25rem;
-    }
-
 .form-card-body {
-    padding: 20px;
-    background-color: white;
+    padding: 25px;
 }
 
 /* Form Elements */
@@ -695,12 +352,62 @@
     }
 
 .p-message-error {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid #ef5350;
 }
+
+    .p-message-error i {
+        margin-right: 8px;
+        font-size: 1.2rem;
+    }
+
+/* Submit Button */
+.submit-button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    padding: 12px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+    .submit-button:hover {
+        background: linear-gradient(135deg, #2980b9, #3498db);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+    }
+
+    .submit-button:disabled {
+        background: #bdc3c7;
+        transform: none;
+        box-shadow: none;
+    }
+
+/* Semester Select */
+.semester-select .p-button {
+    background: transparent;
+    border: 1px solid #ced4da;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+    .semester-select .p-button.p-highlight {
+        background: #3498db;
+        border-color: #3498db;
+        color: white;
+    }
+
+    .semester-select .p-button:not(.p-highlight):hover {
+        background: #f8f9fa;
+        border-color: #adb5bd;
+    }
 
 /* Responsive Design */
 @media (max-width: 992px) {
@@ -723,20 +430,111 @@
     }
 }
 
-/* PrimeReact Overrides */
-.p-dropdown, .p-inputtext, .p-inputnumber {
-    width: 100%;
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.p-selectbutton .p-button {
-    flex: 1;
-    text-align: center;
+.schedule-table tr {
+    animation: fadeIn 0.3s ease forwards;
 }
 
-.p-button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    .schedule-table tr:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .schedule-table tr:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .schedule-table tr:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .schedule-table tr:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .schedule-table tr:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    .schedule-table tr:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
+    .schedule-table tr:nth-child(7) {
+        animation-delay: 0.7s;
+    }
+
+    .schedule-table tr:nth-child(8) {
+        animation-delay: 0.8s;
+    }
+
+    .schedule-table tr:nth-child(9) {
+        animation-delay: 0.9s;
+    }
+
+    .schedule-table tr:nth-child(10) {
+        animation-delay: 1.0s;
+    }
+
+/* Conflict Dialog Enhancements */
+.conflict-dialog-content {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.conflict-item {
+    background-color: #fff8f8;
+    border-left: 4px solid #ff6b6b;
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+    .conflict-item:hover {
+        transform: translateX(5px);
+    }
+
+.conflict-summary {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #6c757d;
+}
+
+.conflict-suggestion {
+    background-color: #e2f0fd;
+    border-left: 4px solid #4dabf7;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .conflict-dialog-content {
+        max-height: 60vh;
+        padding: 15px;
+    }
 }

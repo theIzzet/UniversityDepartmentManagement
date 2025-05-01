@@ -46,7 +46,14 @@ export default defineConfig({
         }
     },
     server: {
-
+        fs: {
+            allow: [
+                // Proje dizininizi ekleyin
+                'D:/Asp.NET Core/UniversityDepartmentManagement',
+                // PrimeIcons fontlarý için node_modules izni
+                'D:/Asp.NET Core/UniversityDepartmentManagement/node_modules'
+            ]
+        },
         proxy: {
             //'^/weatherforecast': {
             //    target,

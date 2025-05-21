@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityDepartmentManagement.Server.Data;
 
@@ -10,9 +11,11 @@ using UniversityDepartmentManagement.Server.Data;
 namespace UniversityDepartmentManagement.Server.Migrations
 {
     [DbContext(typeof(DataApplicationContext))]
-    partial class DataApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20250511164209_examentitymigupdate")]
+    partial class examentitymigupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.4");
@@ -253,35 +256,6 @@ namespace UniversityDepartmentManagement.Server.Migrations
                     b.ToTable("Classrooms");
                 });
 
-            modelBuilder.Entity("UniversityDepartmentManagement.Server.Entities.Comment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ExamId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("InstructorId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExamId");
-
-                    b.HasIndex("InstructorId");
-
-                    b.ToTable("Comments");
-                });
-
             modelBuilder.Entity("UniversityDepartmentManagement.Server.Entities.Exam", b =>
                 {
                     b.Property<int>("Id")
@@ -451,25 +425,6 @@ namespace UniversityDepartmentManagement.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("UniversityDepartmentManagement.Server.Entities.Comment", b =>
-                {
-                    b.HasOne("UniversityDepartmentManagement.Server.Entities.Exam", "Exam")
-                        .WithMany("Comments")
-                        .HasForeignKey("ExamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("UniversityDepartmentManagement.Server.Data.UniversityUser", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("InstructorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Exam");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("UniversityDepartmentManagement.Server.Entities.Exam", b =>
                 {
                     b.HasOne("UniversityDepartmentManagement.Server.Entities.Classroom", "Classroom")
@@ -529,8 +484,6 @@ namespace UniversityDepartmentManagement.Server.Migrations
 
             modelBuilder.Entity("UniversityDepartmentManagement.Server.Data.UniversityUser", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("Exam");
 
                     b.Navigation("Lectures");
@@ -541,11 +494,6 @@ namespace UniversityDepartmentManagement.Server.Migrations
                     b.Navigation("Exam");
 
                     b.Navigation("Lectures");
-                });
-
-            modelBuilder.Entity("UniversityDepartmentManagement.Server.Entities.Exam", b =>
-                {
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("UniversityDepartmentManagement.Server.Entities.Lecture", b =>

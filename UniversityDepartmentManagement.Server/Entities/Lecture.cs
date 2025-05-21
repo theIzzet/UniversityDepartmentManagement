@@ -31,5 +31,7 @@ namespace UniversityDepartmentManagement.Server.Entities
 
 
         public ICollection<LectureSchedule> Schedules { get; set; } = new List<LectureSchedule>();
+
+        public ICollection<Exam> Exam { get; set; } = new List<Exam>();
     }
 }

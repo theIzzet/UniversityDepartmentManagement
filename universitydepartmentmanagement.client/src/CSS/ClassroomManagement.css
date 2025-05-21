@@ -2,8 +2,15 @@
 .classroom-management-container {
     padding: 30px;
     background-color: #f8f9fa;
-    min-height: calc(100vh - 56px);
-    max-width: 100%;
+   
+    margin-top: 30px;
+    width: 100vw;
+    
+    min-height: calc(100vh - 80px);
+    position: relative;
+    z-index: 1;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
 }
 
 .classroom-layout-container {

@@ -11,7 +11,9 @@ import './App.css';
 
 import ManagementSchedule from './Components/ManagementSchedule';
 import UserManagement from './Components/UserManagement';
-import ClassroomManagement from './Components/Classroommanagement'
+import ClassroomManagement from './Components/Classroommanagement';
+import ExamProgramManagement from './Components/ExamProgramManagement';
+
 
 const ProtectedRoute = ({ children }) => {
     const { user } = useAuth();
@@ -57,6 +59,14 @@ function App() {
                         </ProtectedRoute>
                     } />
 
+
+                    
+                    <Route path="/exam-management" element={
+                        <ProtectedRoute>
+                            <ExamProgramManagement />
+                        </ProtectedRoute>
+                    } />
+                    
                  
                 </Routes>
             </Router>

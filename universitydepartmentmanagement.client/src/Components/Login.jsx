@@ -12,6 +12,28 @@ const Login = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
 
+    //const handleSubmit = async (e) => {
+    //    e.preventDefault();
+    //    setError('');
+
+    //    try {
+    //        const response = await axios.post('/api/Login/login', { email, password });
+    //        const { token } = response.data;
+    //        const decodedToken = JSON.parse(atob(token.split('.')[1]));
+    //        const userRole = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+    //        const userData = { token, role: userRole };
+    //        login(userData);
+    //        console.log('User Role:', userRole);
+    //        console.log('Token:' , token)
+    //        navigate('/main');
+
+    //    } catch (error) {
+    //        console.error('Giriþ baþarýsýz:', error);
+    //        setError('Login unssuccesfull.');
+    //    }
+    //};
+
+    // Login.jsx'te handleSubmit fonksiyonunu güncelleyin
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -19,17 +41,14 @@ const Login = () => {
         try {
             const response = await axios.post('/api/Login/login', { email, password });
             const { token } = response.data;
+            localStorage.setItem('token', token); // Token'ý localStorage'a kaydet
             const decodedToken = JSON.parse(atob(token.split('.')[1]));
             const userRole = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
             const userData = { token, role: userRole };
             login(userData);
-            console.log('User Role:', userRole);
-            console.log('Token:' , token)
             navigate('/main');
-            
-        } catch (error) {
-            console.error('Giriþ baþarýsýz:', error);
-            setError('Login unssuccesfull.');
+        } catch /*(error)*/ {
+            setError('Login unsuccessful.');
         }
     };
 

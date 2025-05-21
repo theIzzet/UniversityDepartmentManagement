@@ -18,6 +18,9 @@ namespace UniversityDepartmentManagement.Server.Data
 
         public DbSet<LectureSchedule> LectureSchedules => Set<LectureSchedule>();
 
+        public DbSet<Exam> Exams => Set<Exam>();
+
+        public DbSet<Comment> Comments => Set<Comment>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

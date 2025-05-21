@@ -12,7 +12,8 @@
         public int Columns { get; set; } = 1;
         public int SeatsPerColumn { get; set; } = 1;
 
-        public ICollection<Lecture>? Lectures { get; set; } =new List<Lecture>();
+        public ICollection<Lecture>? Lectures { get; set; } = new List<Lecture>();
+        public ICollection<Exam> Exam { get; set; }= new List<Exam>();
     }
 }
 

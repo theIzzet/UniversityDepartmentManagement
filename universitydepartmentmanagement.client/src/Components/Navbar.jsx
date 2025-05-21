@@ -59,16 +59,16 @@ const Navbar = () => {
 
                         
 
-                        <NavDropdown title="Exam Operations" id="exam-dropdown">
-                            <NavDropdown.Item>
-                                <i className="bi bi-calendar-event me-1"></i>
-                                Exam Schedule
-                            </NavDropdown.Item>
-                            <NavDropdown.Item>
-                                <i className="bi bi-plus-circle me-1"></i>
-                                Add Exam
-                            </NavDropdown.Item>
-                        </NavDropdown>
+                        {/*<NavDropdown title="Exam Operations" id="exam-dropdown">*/}
+                        {/*    <NavDropdown.Item>*/}
+                        {/*        <i className="bi bi-calendar-event me-1"></i>*/}
+                        {/*        Exam Schedule*/}
+                        {/*    </NavDropdown.Item>*/}
+                        {/*    <NavDropdown.Item>*/}
+                        {/*        <i className="bi bi-plus-circle me-1"></i>*/}
+                        {/*        Add Exam*/}
+                        {/*    </NavDropdown.Item>*/}
+                        {/*</NavDropdown>*/}
 
                         <NavDropdown
                             title={<><i className="bi bi-person-circle me-1"></i> {user?.email}</>}
@@ -80,6 +80,17 @@ const Navbar = () => {
                                 Logout
                             </NavDropdown.Item>
                         </NavDropdown>
+
+
+                      
+                        <NavDropdown title="Exam Operations" id="exam-dropdown">
+                            <NavDropdown.Item as={Link} to="/exam-management">
+                                <i className="bi bi-calendar-event me-1"></i>
+                                Exam Management
+                            </NavDropdown.Item>
+                        </NavDropdown>
+
+                      
                     </Nav>
                 </BootstrapNavbar.Collapse>
             </Container>

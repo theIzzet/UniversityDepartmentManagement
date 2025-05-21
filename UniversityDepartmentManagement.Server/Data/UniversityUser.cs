@@ -15,5 +15,9 @@ namespace UniversityDepartmentManagement.Server.Data
         public DateTime AddedTime { get; set; }
 
         public ICollection<Lecture> Lectures { get; set; } = new List<Lecture>();
+
+        public ICollection<Exam> Exam { get; set; } = new List<Exam>();
+
+        public ICollection<Comment> Comments { get; set; }= new List<Comment>();
     }
 }

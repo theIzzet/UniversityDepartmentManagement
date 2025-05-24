@@ -1,4 +1,4 @@
-Üniversite Bölüm İşleri Yönetim Sistemi
+![image](https://github.com/user-attachments/assets/cfc3fb77-34f7-451d-9eac-772d64804334)Üniversite Bölüm İşleri Yönetim Sistemi
 
 ASP.NET Core Web API ve React ile geliştirilmiş, üniversite bölümlerinin akademik işlemlerini kolaylaştıran modern bir yönetim sistemi.
 
@@ -85,3 +85,21 @@ Kapı isimlik oluşturucu
 Node.js v16+
 
 SQLite
+
+Örnek Sayfalar
+
+
+![Ekran görüntüsü 2025-05-24 195950](https://github.com/user-attachments/assets/5a818b82-32dc-4fba-9af8-91bc997041cf)
+
+![Ekran görüntüsü 2025-05-24 200012](https://github.com/user-attachments/assets/e6c0a06d-3c2f-40dd-bb3b-3755e169627c)
+
+
+![Ekran görüntüsü 2025-05-24 200030](https://github.com/user-attachments/assets/d02a2418-e50c-440f-8d03-9006a27418c1)
+
+![Ekran görüntüsü 2025-05-24 200041](https://github.com/user-attachments/assets/7df6f294-68b9-4363-850b-04abdc4218de)
+
+
+
+![Ekran görüntüsü 2025-05-24 200056](https://github.com/user-attachments/assets/38e65a9d-b733-4cde-bb06-95b121378eb8)
+
+
